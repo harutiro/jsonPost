@@ -12,6 +12,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.gson.Gson
@@ -29,6 +33,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JsonPostTheme {
+
+                var json by rememberSaveable { mutableStateOf("") }
                 // A surface container using the 'background' color from the theme
                 Surface(
                     color = MaterialTheme.colorScheme.background
@@ -138,6 +144,8 @@ class MainActivity : ComponentActivity() {
                 val hogeData = Gson().fromJson<List<UserData>>(responseBody, listType)
 
                 Log.d("App", hogeData.toString())
+
+                hogeData.toString()
 
 
                 // 必要に応じてCallback
