@@ -64,80 +64,82 @@ class MainActivity : ComponentActivity() {
     fun startGetRequest() {
         // Requestを作成
         val request = Request.Builder()
-            .url("http://20.168.98.13:8080/likes?id=fnJSu2HaM")
+            .url("https://xclothes.harutiro.net/login?mail=harutiro2727@gmail.com")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 // Responseの読み出し
-//                val responseBody = response.body?.string().orEmpty()
+                val responseBody = response.body?.string().orEmpty()
+                val code = response.code
+                Log.d("get", "body: $responseBody code: $code")
 
-                val responseBody = "[" +
-                        "{" +
-                        "    \"id\": \"hfC7PvTtMp\"," +
-                        "    \"coordinate_id\": \"h4C7PvTtp\"," +
-                        "    \"user_id\": \"fnJSu2HaM\"," +
-                        "    \"put_flag\": 1," +
-                        "    \"public\": 1," +
-                        "    \"image\": \"https://test/test.jpg\"," +
-                        "    \"category\": \"jacket\"," +
-                        "    \"brand\": \"globalworks\"," +
-                        "    \"price\": \"5000-7000円\"," +
-                        "    \"ble\": \"f3b635c8-5b2a-47a1-9360-c3ffbbd6c8fe\"," +
-                        "    \"created_at\": \"2022-08-16T05:52:25+09:00\"," +
-                        "    \"update_at\": \"2022-08-16T15:13:30+09:00\"" +
-                        "}," +
-                        "{" +
-                        "    \"id\": \"J4k7gXHap\"," +
-                        "    \"coordinate_id\": \"h4C7PvTtp\"," +
-                        "    \"user_id\": \"fnJSu2HaM\"," +
-                        "    \"put_flag\": 1," +
-                        "    \"public\": 1," +
-                        "    \"image\": \"https://test/test.jpg\"," +
-                        "    \"category\": \"socks\"," +
-                        "    \"brand\": \"uniclo\"," +
-                        "    \"price\": \"0-1000円\"," +
-                        "    \"ble\": \"f3b635c8-5b2a-47a1-9360-c3ffbbd6c8fe\"," +
-                        "    \"created_at\": \"2022-08-16T05:52:25+09:00\"," +
-                        "    \"update_at\": \"2022-08-16T15:13:30+09:00\"" +
-                        "}," +
-                        "{" +
-                        "    \"id\": \"JU2_EXHtpp\"," +
-                        "    \"coordinate_id\": \"GI2VEXHtM\"," +
-                        "    \"user_id\": \"fnJSu2HaM\"," +
-                        "    \"put_flag\": 2," +
-                        "    \"public\": 1," +
-                        "    \"image\": \"https://test/test.jpg\"," +
-                        "    \"category\": \"jacket\"," +
-                        "    \"brand\": \"globalworks\"," +
-                        "    \"price\": \"5000-7000円\"," +
-                        "    \"ble\": \"6fc7ec4f-a389-415c-b791-767d9c376afc\"," +
-                        "    \"created_at\": \"2022-08-16T06:13:30+09:00\"," +
-                        "    \"update_at\": \"2022-08-16T06:13:30+09:00\"" +
-                        "}," +
-                        "{" +
-                        "    \"id\": \"kIlVEXTaM\"," +
-                        "    \"coordinate_id\": \"GI2VEXHtM\"," +
-                        "    \"user_id\": \"fnJSu2HaM\"," +
-                        "    \"put_flag\": 2," +
-                        "    \"public\": 1," +
-                        "    \"image\": \"https://test/test.jpg\"," +
-                        "    \"category\": \"socks\"," +
-                        "    \"brand\": \"uniclo\"," +
-                        "    \"price\": \"0-1000円\"," +
-                        "    \"ble\": \"6fc7ec4f-a389-415c-b791-767d9c376afc\"," +
-                        "    \"created_at\": \"2022-08-16T06:13:30+09:00\"," +
-                        "    \"update_at\": \"2022-08-16T06:13:30+09:00\"" +
-                        "}," +
-                        "" +
-                        "]"
 
-                Log.d("App", responseBody)
+//                val responseBody = "[" +
+//                        "{" +
+//                        "    \"id\": \"hfC7PvTtMp\"," +
+//                        "    \"coordinate_id\": \"h4C7PvTtp\"," +
+//                        "    \"user_id\": \"fnJSu2HaM\"," +
+//                        "    \"put_flag\": 1," +
+//                        "    \"public\": 1," +
+//                        "    \"image\": \"https://test/test.jpg\"," +
+//                        "    \"category\": \"jacket\"," +
+//                        "    \"brand\": \"globalworks\"," +
+//                        "    \"price\": \"5000-7000円\"," +
+//                        "    \"ble\": \"f3b635c8-5b2a-47a1-9360-c3ffbbd6c8fe\"," +
+//                        "    \"created_at\": \"2022-08-16T05:52:25+09:00\"," +
+//                        "    \"update_at\": \"2022-08-16T15:13:30+09:00\"" +
+//                        "}," +
+//                        "{" +
+//                        "    \"id\": \"J4k7gXHap\"," +
+//                        "    \"coordinate_id\": \"h4C7PvTtp\"," +
+//                        "    \"user_id\": \"fnJSu2HaM\"," +
+//                        "    \"put_flag\": 1," +
+//                        "    \"public\": 1," +
+//                        "    \"image\": \"https://test/test.jpg\"," +
+//                        "    \"category\": \"socks\"," +
+//                        "    \"brand\": \"uniclo\"," +
+//                        "    \"price\": \"0-1000円\"," +
+//                        "    \"ble\": \"f3b635c8-5b2a-47a1-9360-c3ffbbd6c8fe\"," +
+//                        "    \"created_at\": \"2022-08-16T05:52:25+09:00\"," +
+//                        "    \"update_at\": \"2022-08-16T15:13:30+09:00\"" +
+//                        "}," +
+//                        "{" +
+//                        "    \"id\": \"JU2_EXHtpp\"," +
+//                        "    \"coordinate_id\": \"GI2VEXHtM\"," +
+//                        "    \"user_id\": \"fnJSu2HaM\"," +
+//                        "    \"put_flag\": 2," +
+//                        "    \"public\": 1," +
+//                        "    \"image\": \"https://test/test.jpg\"," +
+//                        "    \"category\": \"jacket\"," +
+//                        "    \"brand\": \"globalworks\"," +
+//                        "    \"price\": \"5000-7000円\"," +
+//                        "    \"ble\": \"6fc7ec4f-a389-415c-b791-767d9c376afc\"," +
+//                        "    \"created_at\": \"2022-08-16T06:13:30+09:00\"," +
+//                        "    \"update_at\": \"2022-08-16T06:13:30+09:00\"" +
+//                        "}," +
+//                        "{" +
+//                        "    \"id\": \"kIlVEXTaM\"," +
+//                        "    \"coordinate_id\": \"GI2VEXHtM\"," +
+//                        "    \"user_id\": \"fnJSu2HaM\"," +
+//                        "    \"put_flag\": 2," +
+//                        "    \"public\": 1," +
+//                        "    \"image\": \"https://test/test.jpg\"," +
+//                        "    \"category\": \"socks\"," +
+//                        "    \"brand\": \"uniclo\"," +
+//                        "    \"price\": \"0-1000円\"," +
+//                        "    \"ble\": \"6fc7ec4f-a389-415c-b791-767d9c376afc\"," +
+//                        "    \"created_at\": \"2022-08-16T06:13:30+09:00\"," +
+//                        "    \"update_at\": \"2022-08-16T06:13:30+09:00\"" +
+//                        "}," +
+//                        "" +
+//                        "]"
 
-                val listType = object : TypeToken<List<UserData>>() {}.type
-                val hogeData = Gson().fromJson<List<UserData>>(responseBody, listType)
 
-                Log.d("App", hogeData.toString())
+//                val listType = object : TypeToken<List<UserData>>() {}.type
+//                val hogeData = Gson().fromJson<List<UserData>>(responseBody, listType)
+//
+//                Log.d("App", hogeData.toString())
 
 
                 // 必要に応じてCallback
@@ -164,7 +166,7 @@ class MainActivity : ComponentActivity() {
                 "\t\"mail\": \"yada@aitech.ac.jp\"" +
                 "}"
 
-        val urlStr = "http://20.168.98.13:8080/login"
+        val urlStr = "http://20.168.98.13:8080/logi"
 
         // Requestを作成
         val request = Request.Builder()
@@ -176,7 +178,8 @@ class MainActivity : ComponentActivity() {
             override fun onResponse(call: Call, response: Response) {
                 // Responseの読み出し
                 val responseBody = response.body?.string().orEmpty()
-                Log.d("App", responseBody)
+                val code = response.code
+                Log.d("get", "body: $responseBody code: $code")
                 // 必要に応じてCallback
             }
 
